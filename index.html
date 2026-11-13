@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover" />
+  <meta name="theme-color" content="#07111d" />
+  <title>NEON//SHIFT — Parkour Grand Prix</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800;900&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div id="game-root">
+    <canvas id="game"></canvas>
+    <div class="vignette"></div>
+    <header class="topbar">
+      <div class="brand"><span class="brand-mark">N</span><span>NEON<span class="slash">//</span>SHIFT</span><small>MECH RACING LEAGUE</small></div>
+      <div class="race-label"><i></i> PARKOUR GRAND PRIX <span>·</span> CIRCUIT 01</div>
+      <button id="sound-btn" class="sound-btn" aria-label="Toggle sound">♫ <span>SOUND ON</span></button>
+    </header>
+    <section class="hud">
+      <div class="hud-left">
+        <div class="panel speed-panel"><div class="tiny-label">VELOCITY <span>KM/H</span></div><div class="speed-line"><strong id="speed">000</strong><span class="speed-unit">KM/H</span></div><div class="speed-meter"><i id="speed-meter"></i></div></div>
+        <div class="panel mode-panel"><div class="tiny-label">CURRENT FORM</div><div class="mode-line"><span class="mode-icon" id="mode-icon">◆</span><strong id="mode-name">SPEEDER</strong><span class="mode-pill" id="mode-pill">RACE</span></div></div>
+      </div>
+      <div class="hud-right">
+        <div class="panel lap-panel"><div class="tiny-label">LAP <span id="lap-num">01</span> / 01</div><div class="progress-track"><i id="progress"></i><b id="checkpoint-marker"></b></div><div class="progress-meta"><span>START</span><span id="race-time">00:00.00</span><span>FINISH</span></div></div>
+        <div class="panel objective"><span class="objective-icon">✦</span><div><div class="tiny-label">NEXT UP</div><strong id="objective-text">CLEAR THE GAP</strong></div><span class="objective-distance" id="objective-distance">-- M</span></div>
+      </div>
+    </section>
+    <div id="toast" class="toast"></div>
+    <div class="bottom-hints"><span><kbd>W</kbd><kbd>A</kbd><kbd>S</kbd><kbd>D</kbd> DRIVE</span><span><kbd>SPACE</kbd> JUMP</span><span><kbd>X</kbd> TRANSFORM</span><span><kbd>SHIFT</kbd> BOOST</span></div>
+    <div class="touch-controls" aria-label="Touch driving controls">
+      <div class="touch-steer"><button data-control="left">◀</button><button data-control="right">▶</button></div>
+      <div class="touch-actions"><button data-control="jump">JUMP</button><button data-control="transform">SHIFT FORM</button><button data-control="gas">▲</button></div>
+    </div>
+    <div id="start-screen" class="screen-card">
+      <div class="card-kicker"><span></span> THE FUTURE IS A MOVING TARGET</div>
+      <h1>DRIVE.<br><em>TRANSFORM.</em><br>DEFY GRAVITY.</h1>
+      <p>Race the skyway. Shift into a mech to smash through the course. One lap. No limits.</p>
+      <button id="start-btn" class="primary-btn">START YOUR RUN <span>↗</span></button>
+      <div class="card-foot"><span>01 / 01 LAP</span><span>◆ PARKOUR CIRCUIT</span><span>BEST: <b id="best-time">--:--.--</b></span></div>
+      <div class="card-decoration">NS<span>01</span></div>
+    </div>
+    <div id="finish-screen" class="screen-card finish-card hidden">
+      <div class="card-kicker"><span></span> RUN COMPLETE</div><h2 id="finish-title">CIRCUIT<br><em>CONQUERED.</em></h2>
+      <p id="finish-copy">You made the skyline yours.</p><div class="finish-time" id="finish-time">00:00.00</div>
+      <button id="restart-btn" class="primary-btn">RACE AGAIN <span>↻</span></button>
+    </div>
+    <div class="corner-tag">AERIAL CIRCUIT <b>·</b> 2089</div>
+  </div>
+  <script type="module" src="game.js"></script>
+</body>
+</html>
